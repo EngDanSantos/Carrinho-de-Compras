@@ -1,5 +1,8 @@
+let totalGeral;
+limpar();
+
 function adicionar(){
-    //recupera valores, nome, quantidade, valor, preço, e subtotal
+    //recupera valores, nome, quantidade, valor, preï¿½o, e subtotal
     let produto = document.getElementById('produto').value;
     let nomeProduto = produto.split('-')[0];
     let valorunitario = produto.split('R$')[1];
@@ -11,6 +14,8 @@ function adicionar(){
     <span class="texto-azul">${quantidade}</span> ${nomeProduto} <span class="texto-azul">R$${preco}</span>
   </section>`;
     // atualizar o valor total
+    let carrinhoTotal = document.getElementById('valor-total');
+    totalGeral = totalGeral + totalGeral * preco
 }
 
 function limpar(){
