@@ -1,5 +1,4 @@
 let totalGeral;
-
 limpar();
 
 function adicionar(){
@@ -13,18 +12,20 @@ function adicionar(){
     let carrinho = document.getElementById('lista-produtos');
     carrinho.innerHTML = carrinho.innerHTML + `<section class="carrinho__produtos__produto">
     <span class="texto-azul">${quantidade}</span> ${nomeProduto} <span class="texto-azul">R$${preco}</span>
-  </section>`;
+    </section>`;
     // atualizar o valor total
-    totalGeral = totalGeral +  preco;
+     totalGeral = totalGeral +  preco;
     let carrinhoTotal = document.getElementById('valor-total');
     carrinhoTotal.textContent = `R$ ${totalGeral}`;
     document.getElementById('quantidade').value = 0;
-       
+    if (quantidade <= 0) {
+      // Exibir mensagem de erro
+      alert("Quantidade inválida! O produto não pode ser adicionado ao carrinho com quantidade zero.");
+      return limpar();
+    }
 }
-
 function limpar(){
   document.getElementById('valor-total').textContent = 'R$ 0';
   document.getElementById('lista-produtos').textContent = '';
   totalGeral = 0;
-
 }
